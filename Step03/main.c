@@ -166,7 +166,7 @@ void bp_learning(BP* this, int train_x[64][7], int n_examples){
 
     
     
-    for(j=0; j<n2; j++) {
+    for(j=1; j<n2; j++) {
       uu[j] = 0.0;
       for(k=0; k<n1; k++) {
 	uu[j] += s[j][k]*x[k];
