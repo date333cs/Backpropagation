@@ -1,12 +1,15 @@
 
-
-2018.5.9 水
-はじまり．まずは構造体 bp を作り，メモリ確保．
-Step01, Step02
+2018.5.10 木
+void bp_learning(BP* this, int** train_x, int* target_y, int n_examples)
+Step03 本コードを別の問題にもすぐに使えるように変更．
 
 2018.5.9 水
 void bp_learning(BP* this, int** train_x, int n_examples)
 Step03 この中身，未完成．完成させる．
+
+2018.5.9 水
+はじまり．まずは構造体 bp を作り，メモリ確保．
+Step01, Step02
 
 
 
