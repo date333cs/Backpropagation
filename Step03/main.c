@@ -98,10 +98,10 @@ void bp_learning(BP* this, int** train_x, int* target_y, int n_examples){
   for(a=0; a<n_examples; a++) {
     // 入力の提示
     for(k=1; k<n1; k++) {
-      x[k] = (double)train_x[a][k-1];
+      x[k] = (double)train_x[a][k];
     }
-    y = (double)target_y[a];
-    
+    y=(double)target_y[a];
+
     for(j=1; j<n2; j++) {
       uu[j] = 0.0;
       for(k=0; k<n1; k++) {
