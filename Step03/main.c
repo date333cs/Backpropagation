@@ -2,7 +2,7 @@
  *   backpro メイン (main.c)
  *
  *   A. Date
- *   2018.5.9
+ *   2018.5.10
  */
 
 #include <stdio.h>
@@ -11,7 +11,8 @@
 #include "backpro.h"
 #include "irl_utility.h"
 
-void rumelhart1986fig1(){
+/* Fig 1 of Rumelhart et al 1986 */
+void mirror_symmetry_detection(){
 
   int n1 = 6; // 入力信号の次元 
   int n2 = 2; // 中間層 の素子数 
@@ -20,96 +21,34 @@ void rumelhart1986fig1(){
   int t;
 
   BP* bp;
+  int** train_x;
+  int* target_y;
+  
   // 入力信号の集合を読みこむ（もしくは作成）．
-  // training data
-  int train_x[64][7] = {
-    { 0, 0, 0, 0, 0, 0, 1},
-    { 0, 0, 0, 0, 0, 1, 0},
-    { 0, 0, 0, 0, 1, 0, 0},
-    { 0, 0, 0, 0, 1, 1, 0},
-    { 0, 0, 0, 1, 0, 0, 0},
-    { 0, 0, 0, 1, 0, 1, 0},
-    { 0, 0, 0, 1, 1, 0, 0},
-    { 0, 0, 0, 1, 1, 1, 0},
-    { 0, 0, 1, 0, 0, 0, 0},
-    { 0, 0, 1, 0, 0, 1, 0},
-    { 0, 0, 1, 0, 1, 0, 0},
-    { 0, 0, 1, 0, 1, 1, 0},
-    { 0, 0, 1, 1, 0, 0, 1},
-    { 0, 0, 1, 1, 0, 1, 0},
-    { 0, 0, 1, 1, 1, 0, 0},
-    { 0, 0, 1, 1, 1, 1, 0},
-    { 0, 1, 0, 0, 0, 0, 0},
-    { 0, 1, 0, 0, 0, 1, 0},
-    { 0, 1, 0, 0, 1, 0, 1},
-    { 0, 1, 0, 0, 1, 1, 0},
-    { 0, 1, 0, 1, 0, 0, 0},
-    { 0, 1, 0, 1, 0, 1, 0},
-    { 0, 1, 0, 1, 1, 0, 0},
-    { 0, 1, 0, 1, 1, 1, 0},
-    { 0, 1, 1, 0, 0, 0, 0},
-    { 0, 1, 1, 0, 0, 1, 0},
-    { 0, 1, 1, 0, 1, 0, 0},
-    { 0, 1, 1, 0, 1, 1, 0},
-    { 0, 1, 1, 1, 0, 0, 0},
-    { 0, 1, 1, 1, 0, 1, 0},
-    { 0, 1, 1, 1, 1, 0, 1},
-    { 0, 1, 1, 1, 1, 1, 0},
-    { 1, 0, 0, 0, 0, 0, 0},
-    { 1, 0, 0, 0, 0, 1, 1},
-    { 1, 0, 0, 0, 1, 0, 0},
-    { 1, 0, 0, 0, 1, 1, 0},
-    { 1, 0, 0, 1, 0, 0, 0},
-    { 1, 0, 0, 1, 0, 1, 0},
-    { 1, 0, 0, 1, 1, 0, 0},
-    { 1, 0, 0, 1, 1, 1, 0},
-    { 1, 0, 1, 0, 0, 0, 0},
-    { 1, 0, 1, 0, 0, 1, 0},
-    { 1, 0, 1, 0, 1, 0, 0},
-    { 1, 0, 1, 0, 1, 1, 0},
-    { 1, 0, 1, 1, 0, 0, 0},
-    { 1, 0, 1, 1, 0, 1, 1},
-    { 1, 0, 1, 1, 1, 0, 0},
-    { 1, 0, 1, 1, 1, 1, 0},
-    { 1, 1, 0, 0, 0, 0, 0},
-    { 1, 1, 0, 0, 0, 1, 0},
-    { 1, 1, 0, 0, 1, 0, 0},
-    { 1, 1, 0, 0, 1, 1, 1},
-    { 1, 1, 0, 1, 0, 0, 0},
-    { 1, 1, 0, 1, 0, 1, 0},
-    { 1, 1, 0, 1, 1, 0, 0},
-    { 1, 1, 0, 1, 1, 1, 0},
-    { 1, 1, 1, 0, 0, 0, 0},
-    { 1, 1, 1, 0, 0, 1, 0},
-    { 1, 1, 1, 0, 1, 0, 0},
-    { 1, 1, 1, 0, 1, 1, 0},
-    { 1, 1, 1, 1, 0, 0, 0},
-    { 1, 1, 1, 1, 0, 1, 0},
-    { 1, 1, 1, 1, 1, 0, 0},
-    { 1, 1, 1, 1, 1, 1, 1}
-  };
+  train_x = alloc_2d_int(64,7);
+  target_y = alloc_1d_int(64);
+  // int train_x[64][7] = {
+  // { 0, 0, 0, 0, 0, 0 },
+  // { 0, 0, 0, 0, 0, 1 },
+  generate_data_set_mirror_symmetry(train_x, target_y);
 
-  // 回路を作る．
-  n1++; // しきい値の素子分を加える
+  // Creates a new netwotk.
+  n1++; // for threshold units
   n2++;
   bp = bp_new(n1, n2);
 
-
-  // 回路 bp の初期化
+  //  All weights are randomly initialized.
   bp_init_weights(bp);
 
-
-  test_x_train(bp, train_x, n_examples);
-
+  test_x_train(bp, train_x, target_y, n_examples);
   exit(0);
-  
-  
+
   // bp に入力信号を提示して，学習させる．
   for(t=0; t<n_epochs; t++) {
-    bp_learning(bp, train_x, n_examples);
+    bp_learning(bp, train_x, target_y, n_examples);
     // 回路の評価
   }
-  
+
   free_bp(bp);
 
 }
@@ -135,7 +74,7 @@ void bp_init_weights(BP* this){
 }
 
 
-void bp_learning(BP* this, int train_x[64][7], int n_examples){
+void bp_learning(BP* this, int** train_x, int* target_y, int n_examples){
 
   int a;
   int j, k;
@@ -157,14 +96,11 @@ void bp_learning(BP* this, int train_x[64][7], int n_examples){
 
   
   for(a=0; a<n_examples; a++) {
-  
     // 入力の提示
     for(k=1; k<n1; k++) {
       x[k] = (double)train_x[a][k-1];
     }
-    y=(double)train_x[a][6]; // 0,1,2,3,4,5 がデータ．6番は教師信号．
-
-    
+    y = (double)target_y[a];
     
     for(j=1; j<n2; j++) {
       uu[j] = 0.0;
@@ -257,8 +193,49 @@ void free_bp(BP* this) {
 }
 
 
+void generate_data_set_mirror_symmetry(int** x, int* y){
 
-void test_x_train(BP* this, int train_x[64][7], int n_examples){
+  int i,a;
+
+  for (i=0; i<64; i++) {
+    x[i][0]=1; // dammy. no use.
+    a = i+1;
+    if (a > 32){
+      x[i][1]=1;
+      a = a-32;
+    }
+    if (a > 16){
+      x[i][2]=1;
+      a = a-16;
+    }
+    if (a > 8){
+      x[i][3]=1;
+      a = a-8;
+    }
+    if (a > 4){
+      x[i][4]=1;
+      a = a-4;
+    }
+    if (a > 2){
+      x[i][5]=1;
+      a = a-2;
+    }
+    if (a > 1){
+      x[i][6]=1;
+    }
+  }
+
+  for (i=0; i<64; i++) {
+    y[i]=0;
+    if ( x[i][1]==x[i][6] &&  x[i][2]==x[i][5] && x[i][3]==x[i][4]){
+      y[i] = 1;
+    }
+  }
+
+}
+
+
+void test_x_train(BP* this, int** train_x, int* target_y, int n_examples){
   int a;
   int k;
   int n1 = this->n1;
@@ -267,10 +244,10 @@ void test_x_train(BP* this, int train_x[64][7], int n_examples){
   
   for(a=0; a<n_examples; a++) {
     for(k=1; k<n1; k++) {
-      x[k] = (double)train_x[a][k-1];
+      x[k] = (double)train_x[a][k];
       printf("%.0lf", x[k]);
     }
-    y=(double)train_x[a][6]; // 0,1,2,3,4,5 がデータ．6番は教師信号．
+    y=(double)target_y[a];
     printf(" %.0lf\n", y);
   }
 
@@ -298,7 +275,7 @@ int main (int argc, char *argv[] ){
   }
   srand48(seed);
 
-  rumelhart1986fig1();
+  mirror_symmetry_detection();
 
   return 0;
 }

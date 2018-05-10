@@ -24,7 +24,8 @@ typedef struct {
 BP* bp_new(int n1, int n2);
 void free_bp(BP* this);
 void bp_init_weights(BP* this);
-void bp_learning(BP* bp, int train_x[64][7], int n_examples);
-void test_x_train(BP* this, int train_x[64][7], int n_examples);
+void bp_learning(BP* this, int** train_x, int* target_y, int n_examples);
+void generate_data_set_mirror_symmetry(int** x, int* y);
+void test_x_train(BP* this, int** train_x, int* target_y, int n_examples);
   
 #endif /* BACKPRO_H*/
