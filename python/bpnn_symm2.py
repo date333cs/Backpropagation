@@ -4,8 +4,9 @@
 # Placed in the public domain.
 # Neil Schemenauer <nas@arctrix.com>
 #
-# demo_symmetry_detection added by A. Date
-# I don't know why this code works/
+# demo_symmetry_detection added by Akira Date
+# bugs(?) fixed
+# I don't know why this code doesn't work. 
 
 import math
 import random
@@ -24,19 +25,19 @@ def makeMatrix(I, J, fill=0.0):
         m.append([fill]*J)
     return m
 
-# our sigmoid function, tanh is a little nicer than the standard 1/(1+e^-x)
+# sigmoid function
 def sigmoid(x):
-    return math.tanh(x)
+    return 1.0/(1.0 + math.exp(-x))
 
 # derivative of our sigmoid function, in terms of the output (i.e. y)
 def dsigmoid(y):
-    return 1.0 - y**2
+    return y*(1.0 - y)
 
 class NN:
     def __init__(self, ni, nh, no):
         # number of input, hidden, and output nodes
         self.ni = ni + 1 # +1 for bias node
-        self.nh = nh
+        self.nh = nh + 1 # +1 for bias node
         self.no = no
 
         # activations for nodes
@@ -69,7 +70,7 @@ class NN:
             self.ai[i] = inputs[i]
 
         # hidden activations
-        for j in range(self.nh):
+        for j in range(self.nh-1):
             sum = 0.0
             for i in range(self.ni):
                 sum = sum + self.ai[i] * self.wi[i][j]
@@ -97,7 +98,7 @@ class NN:
 
         # calculate error terms for hidden
         hidden_deltas = [0.0] * self.nh
-        for j in range(self.nh):
+        for j in range(self.nh-1):
             error = 0.0
             for k in range(self.no):
                 error = error + output_deltas[k]*self.wo[j][k]
@@ -113,7 +114,7 @@ class NN:
 
         # update input weights
         for i in range(self.ni):
-            for j in range(self.nh):
+            for j in range(self.nh-1):
                 change = hidden_deltas[j]*self.ai[i]
                 self.wi[i][j] = self.wi[i][j] + N*change + M*self.ci[i][j]
                 self.ci[i][j] = change
@@ -138,7 +139,7 @@ class NN:
         for j in range(self.nh):
             print(self.wo[j])
 
-    def train(self, patterns, iterations=1000, N=0.5, M=0.1):
+    def train(self, patterns, iterations=10000, N=0.5, M=0.1):
         # N: learning rate
         # M: momentum factor
         for i in range(iterations):
@@ -249,4 +250,5 @@ def demo_symmetry_detection():
 
 
 if __name__ == '__main__':
-    demo_symmetry_detection()
+    # demo_symmetry_detection()
+    demo()
