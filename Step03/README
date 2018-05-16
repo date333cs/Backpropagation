@@ -1,4 +1,7 @@
 
+2018.5.16 水
+void bp_learning(BP* this, double** train_x, double* target_y, int n_examples)
+
 2018.5.10 木
 void bp_learning(BP* this, int** train_x, int* target_y, int n_examples)
 Step03 本コードを別の問題にもすぐに使えるように変更．
