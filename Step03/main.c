@@ -89,18 +89,18 @@ void bpnn_learning(BPNN* this, double** train_x, double* target_y, int n_example
   double *w = this->w;
   double *dw = this->dw;
   double uu, y;
-  
+
   x[n1-1]=1.0;
   u[n2-1]=1.0;
-  
+
   for(a=0; a<n_examples; a++) {
     // 入力の提示
-    for(k=0; k<n1; k++) {
+    for(k=0; k<n1-1; k++) {
       x[k] = train_x[a][k];
     }
     y=target_y[a];
 
-    for(j=1; j<n2; j++) {
+    for(j=0; j<n2-1; j++) {
       uu = 0.0;
       for(k=0; k<n1; k++) {
 	uu += s[j][k]*x[k];
@@ -172,7 +172,8 @@ void free_bpnn(BPNN* this) {
 
     int i;
     int n2 = this->n2;
-
+    n2++;
+    
     free((char *) this->x);
     free((char *) this->u);
 
