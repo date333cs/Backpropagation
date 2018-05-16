@@ -12,7 +12,8 @@
 #include "irl_utility.h"
 
 
-void rumelhart1986fig1(){
+// Rumelhart et al (1986) Fig1
+void mirror_symmetry_detection(){
 
 }
 
@@ -36,7 +37,7 @@ int main (int argc, char *argv[] ){
   }
   srand48(seed);
 
-  rumelhart1986fig1();
-
+  mirror_symmetry_detection();
+  
   return 0;
 }

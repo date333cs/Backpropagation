@@ -10,22 +10,21 @@ typedef struct {
   int n2;  /* number of units in the second layer */
   double *x; /* input units */
   double *u; /* output of the second layer units */
-  double *uu;
   double z;  /* output unit */
-  double uz;
+  double uz;  /* output unit */
   double **s; /* s[j][k]: connection weights */
   double **ds;
   double *w; /* w[j]: connection weights to the ouput unit */
   double *dw;
-} BP;
+} BPNN;
 
 #define RAND_SEED 20180509
 
-BP* bp_new(int n1, int n2);
-void free_bp(BP* this);
-void bp_init_weights(BP* this);
-void bp_learning(BP* this, int** train_x, int* target_y, int n_examples);
-void generate_data_set_mirror_symmetry(int** x, int* y);
-void test_x_train(BP* this, int** train_x, int* target_y, int n_examples);
-  
+BPNN* bpnn_new(int n1, int n2);
+void free_bpnn(BPNN* this);
+void bpnn_init_weights(BPNN* this);
+void bpnn_learning(BPNN* this, double** train_x, double* target_y, int n_examples);
+void generate_data_set_mirror_symmetry(double** x, double* y);
+void test_x_train(BPNN* this, double** train_x, double* target_y, int n_examples);
+
 #endif /* BACKPRO_H*/

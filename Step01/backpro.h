@@ -13,12 +13,11 @@ typedef struct {
   double z;  /* output unit */
   double **s; /* s[j][k]: connection weights */
   double *w; /* w[j]: connection weights to the ouput unit */
-} BP;
+} BPNN;
 
 #define RAND_SEED 20180509
 
-BP* bp_new(int n1, int n2);
-void free_bp(BP* this);
-
+BPNN* bpnn_new(int n1, int n2);
+void free_bpnn(BPNN* this);
 
 #endif /* BACKPRO_H*/

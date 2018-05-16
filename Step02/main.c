@@ -11,37 +11,36 @@
 #include "backpro.h"
 #include "irl_utility.h"
 
-
-
-void rumelhart1986fig1(){
+// Rumelhart et al (1986) Fig1
+void mirror_symmetry_detection(){
 
   int n1 = 6; // 入力信号の次元 
   int n2 = 2; // 中間層 の素子数 
 
-  BP* bp;
+  BPNN* bpnn;
 
   // 入力信号の集合を読みこむ（もしくは作成）．
 
   // 回路を作る．
   n1++; // しきい値の素子分を加える
   n2++;
-  bp = bp_new(n1, n2);
+  bpnn = bpnn_new(n1, n2);
 
-  // 回路 bp の初期化
+  // 回路 bpnn の初期化
 
-  // bp に入力信号を提示して，学習させる．
+  // bpnn に入力信号を提示して，学習させる．
 
-  free_bp(bp);
+  free_bpnn(bpnn);
 
 }
 
 
-BP* bp_new(int n1, int n2) {
+BPNN* bpnn_new(int n1, int n2) {
 
-    BP* this;
+    BPNN* this;
     int j, k;
 
-   this = (BP*) malloc (sizeof(BP));
+   this = (BPNN*) malloc (sizeof(BPNN));
    if (this == NULL) return NULL;
 
    this->n1 = n1;
@@ -81,7 +80,7 @@ BP* bp_new(int n1, int n2) {
 
 
 
-void free_bp(BP* this) {
+void free_bpnn(BPNN* this) {
 
     int i;
     int n2 = this->n2;
@@ -119,7 +118,7 @@ int main (int argc, char *argv[] ){
   }
   srand48(seed);
 
-  rumelhart1986fig1();
+  mirror_symmetry_detection();
 
   return 0;
 }
