@@ -1,3 +1,5 @@
+2018.5.16 水
+void bp_learning(BP* this, double** train_x, double* target_y, int n_examples)
 
 2018.5.15 火
 もういちど，ゼロから作るなら：
