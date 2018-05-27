@@ -1,5 +1,5 @@
-﻿%#! platex %f && dvipdfmxm -d 5 project180527backprop
-%
+%% -*- coding: utf-8-unix -*-
+%#! platex %f && dvipdfmx -d 5 project180527backprop
 %
 \documentclass[a4paper,11pt]{jarticle} 
 \usepackage{fancybox}
@@ -152,45 +152,7 @@ Tensorflow, Chainer など機械学習のフレームワークを使い，
 大規模な回路がどのように動いているか，
 動作原理の理解が深まるはずである．
 
-
-\subsection{課題}
-「系統的に」解析する，とはどういうことか知ることを目的にするため，
-課題は，
-有名な論文\cite{rumelhart86b,sgeman92a}に掲載されている結果を
-再現し，その結果を『考察』することとする．
-本質的でない点まで再現する必要はない．
-どの課題も出力層は1個の出力素子から構成される．
-入力層の素子数$n_1$や，
-中間層（第2層，隠れ層）の素子数$n_2$は，
-課題により異なる．
 \rhead{}
-\begin{enumerate}
-\item XOR ゲートの実現 （入力2次元，$n_1=2, n_2=2,3,\cdots$）
-\item mirror symmetry の検出（$n_1=6$． \cite{rumelhart86b}の Fig. 1）
- \begin{itemize}
-  \item 論文通りの結果が得られない可能性が高い．それはどこに原因があるか．
-	隠れ層の素子数 2 でできるのか．考察する価値あり．
-  \item 結合係数の初期値，バッチ学習か逐次学習か．
-
- \end{itemize}
-
-
-
- \item サインカーブで区切られた領域の分類（\cite{sgeman92a}のFig.3）
-
-\begin{enumerate}
- \item nearest-neighbor （\cite{sgeman92a}の
-       Fig.4 〜 Fig.7）
- \item feedforward neural network
-       （$n_1=2$．\cite{sgeman92a}の
-       Fig.8 〜 Fig.11）
-\end{enumerate}
-
-\end{enumerate}
-
-
-
-
 
 \subsection{教師あり学習の原理}
 以下，図1に記述した記号を用いて説明する．
@@ -562,8 +524,8 @@ u_j
        
       与えられた例題に対して，回路の出力と望ましい出力の
       誤差を学習誤差とよぶ．
-      例題だけを丸暗記していれば，これはゼロとすることができる．
-      目的は，いまだ経験していない例題に対して，正しい答えを推論することである．
+      例題を丸暗記していれば，これはゼロにすることができる．
+      目的は，まだ経験していない例題に対して，正しい答えを推論することである．
       未知の入力（学習に用いていないデータ）に対しての，
       回路の出力と望ましい出力の
       誤差を汎化誤差（generalization error）とよぶ．
@@ -586,13 +548,14 @@ u_j
        （証明は文献\cite{sgeman92a} p.4）．
        もちろん，データからは $ {\rm E }  [y | \bx]   $ を推定することは
        できるが，
-       本当のところは神様しかわからない．
+       本当のところは神様しかわからない（今回の例題では分かっているが，
+       推論にはもちろん使わない）．
        
  \item Nearest-Neighbor Regression
 
        $k-$Nearest-Neighbor とよばれる．
        $k$ には $1$ とか，$5$ などの整数が入る．
-       この方法は単純で，分かりやすい．
+       この方法は単純で分かりやすい．
        まず例題を全部記憶しておく．
        未知の例題 $\bx$が与えられたときには，与えられている例題の中に含まれている，
        $\bx$に近いものから順に$k$個の例題を取り出し推論に使う．
@@ -617,15 +580,15 @@ u_j
        
  \item ニューロンの出力を決める関数について．
        
-       $g(u) = 1/\{1+\exp(-u)\}$など（活性
+       $g(u) = 1/\{1+\exp(-u)\}$など（活動度関数，活性
        化関数とよばれたりする）は，$0$ から $1$の値を出力する．
        $-1,1$ の値を出力させたければ，
        $g(u) = \tanh (u) $
-       を用いていればよい．
+       を用いればよい．
        出力層の素子はともかく，
        中間層の素子には，
        $g(u) = \tanh (u) $
-       を用いたほうが，学習が速く進む，ようだ（←理論的根拠を調べる必要
+       を用いたほうが，学習が速く進む場合が多いようだ（←理論的根拠を調べる必要
        あり）．
        出力値の望ましい信号も $0,1$より，
        $ y = \pm 1 $ のときのほうが学習がうまくいくという話もある．
@@ -661,13 +624,16 @@ u_j
 	
 \item Tensorflow, Chainer などの利用
 
+      （今後，説明する予定）
 \end{enumerate}
 
 
 
-\section{具体的な実験の仕方}
+\section{コンピュータ実験の方法}
+
+    基本的な手順は，次のようになる．
 \begin{enumerate}
-\item 例題データの作成
+ \item 例題データの作成
  \item 結合係数の初期値を適当な乱数に設定
  \item 回路に入力を与え，順に素子の出力を計算し，最終出力を計算．
  \item 結合係数の値を更新
@@ -676,7 +642,82 @@ u_j
        振動している場合，学習係数が大きすぎることに原因があると考えよう．
 \end{enumerate}
 
-\rhead{}
+  100台の回路を学習した結果が必要な場合，
+  あらかじめ，1台づつの学習結果（各場所への入力に対する出力）をファイル
+  に保存しておく．
+  そのあと，作成した100ファイルを読み込み，
+  結果を表示するプログラムを別に書いたほうが，
+  一つのプログラムで100台を学習するコードを書くより，効率が良いと思われる．
+  
+  
+\newpage
+
+
+\section{課題}
+課題は，著名な論文\cite{rumelhart86b,sgeman92a}に掲載されている
+結果（図）の再現を試み，
+その結果を『考察』することとする．
+本質的でない点まで再現する必要はない．
+「系統的に」解析する，とはどういうことかを，これらの論文から感じとって欲しい．
+なにを考察するかは具体的には指定しないが，以下，
+考察価値のある項目の例をいくつか示す．
+
+どの課題も出力層は1個の出力素子から構成される．
+入力層の素子数$n_1$や，
+中間層（第2層，隠れ層）の素子数$n_2$は，
+課題により異なる．
+
+期日までにできなかった場合，
+できたところまでを提出すればよい．
+pdf ファイルを
+メールに添付して送ればよい
+（宛先は {\small\tt date@cs.miyazaki-u.ac.jp} ．紙での提出でもよい）．
+件名は「数理脳科学レポート課題の提出」，
+ファイル名は 「{\small\tt date20180531bpnn.pdf}」（名前＋日付＋bpnn）などと
+してもらえると助かる．
+
+\begin{enumerate}
+\item XOR ゲートの実現 （入力2次元，$n_1=2, n_2=2,3,\cdots$）
+\item mirror symmetry detection（$n_1=6$． 文献\cite{rumelhart86b}の Fig. 1）
+ \begin{itemize}
+  \item 論文通りの結果が得られない可能性が高い．それはどこに原因があるか．
+	隠れ層の素子数 2 で本当にできるのか．考察する価値あり．
+  \item 回路がすべての例題に正解できた場合，その回路の構造を考察する．
+	論文に書かれている構造とは別の解決方法がいくつもあるかもしれない．
+  \item 64個すべての例題を学習に用いなくても学習できるはずである
+	（人間の場合 5例くらいをじっくり見れば，規則性はわかるのではないか）．
+	どの少数の例を用いるか，何例くらい用いるか．
+		
+  \item 結合係数の初期値の分布．
+  \item バッチ学習（64例，提示したあとで，結合係数を平均の方向に変える）と
+	逐次学習（一例一例提示するごとに，結合係数を変える）での実験結果の違い．
+	
+
+ \end{itemize}
+
+
+
+ \item サインカーブで区切られた領域の分類（文献\cite{sgeman92a}のFigure 3）
+
+\begin{enumerate}
+
+\item Fig. 3 (sinusoid-within-rectangle problem, SWR)
+\item Fig. 4 ($k$-nearest-neighbor regression, $k=1,\cdots,10$, SWR)
+\item Fig. 5 (1 and 2-nearest-neighbor regression, SWR)
+\item Fig. 6 (average of 100 5-nearest-neighbor machines, SWR)
+\item Fig. 7 (Bias and variance of 1 and 10-nearest-neighbor estimators, SWR)
+\item Fig. 8 (Bias and variance of feedforward neural networks, \#(hidden units)=$1,\cdots,15$, SWR)
+\item Fig. 9 (two examples of the output of feedforward neural networks, \#(hidden units)=5, SWR)
+% \item nearest-neighbor （\cite{sgeman92a}のFig.4 〜 Fig.7）
+% \item feedforward neural network      （$n_1=2$．\cite{sgeman92a}の       Fig.8 〜 Fig.11）
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+
 
 % BibTeX を使用する場合 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{irl_bibs}
