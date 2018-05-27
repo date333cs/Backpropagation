@@ -1,4 +1,4 @@
-# Back-Propagation Neural Networks
+﻿# Back-Propagation Neural Networks
 # 
 # Written in Python.  See http://www.python.org/
 # Placed in the public domain.
