@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{rumelhart86b}
+D.E. Rumelhart, G.E. Hinton, and R.J. Williams,
+``Learning representations by back-propagating errors,''
+Nature,
+vol.323, pp.533--536, 1986.
+
+\bibitem{amari88c}
+甘利俊一，
+``ニューロコンピューティングの数学的基礎，\<''
+コンピュートロール, no.24，pp.2--14，1988．
+
+\bibitem{sgeman92a}
+S. Geman, E. Bienenstock, and R. Doursat,
+``Neural networks and the bias/variance dilemma,''
+Neural Computation,
+vol.4, pp.1--58, 1992.
+
+\end{thebibliography}
