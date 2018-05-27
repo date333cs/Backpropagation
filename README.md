@@ -6,3 +6,7 @@ Here we try to reproduce figures presented in the great papers.
 - Neural networks and the bias/variance dilemma (Geman et al, Neural Computation, vol.4, pp.1-58. 1992)
 
 
+
+- docs/  latex document for the project
+
+

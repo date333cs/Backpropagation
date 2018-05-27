@@ -1,4 +1,4 @@
-%#! platex %f && dvipdfmxm -d 5 project180527backprop
+﻿%#! platex %f && dvipdfmxm -d 5 project180527backprop
 %
 %
 \documentclass[a4paper,11pt]{jarticle} 
@@ -36,82 +36,82 @@
 
 \begin{document}
 \setlength{\baselineskip}{7mm}
-\rhead{\small $B?tM}G>2J3X(B\\2018$BG/(B4$B7n(B26$BF|(B\\
-$B99?7(B 2018$BG/(B5$B7n(B27$BF|(B}
+\rhead{\small 数理脳科学\\2018年4月26日\\
+更新 2018年5月27日}
 \lfoot{}
 \lhead{}
 
 \begin{center}
-{\large\bf $B2]Bj(B1: $B65;U$"$j3X=,(B\\
-$BCf4VH/I=!J(B30$BIC(B/$B?M!K!'(B5$B7n(B17$BF|!JLZ!K(B\\
-$BDs=PDy@Z(B 5$B7n(B31$BF|!JLZ!K(B
+{\large\bf 課題1: 教師あり学習\\
+中間発表（30秒/人）：5月17日（木）\\
+提出締切 5月31日（木）
 }\\
 \begin{figure}[hbt]
 \begin{center}
 \includegraphics[width=.8\linewidth]{figs/nn20180425.eps}
-\caption{3$BAX?@7P2sO)%b%G%k!J<B<A$O(B2$BAX!K(B\label{fig:3layer}}
+\caption{3層神経回路モデル（実質は2層）\label{fig:3layer}}
 \end{center}
 \end{figure}
 \end{center}
 
 
-$B%K%e!<%i%k%M%C%H$K$O!$(B
-$B$$$/$D$+$NE57?E*$JMWAG%b%G%k$,$"$k!%(B% \cite{amari88c}$B!%(B
-$B$=$N0l$D$,!$%Q!<%;%W%H%m%s$rBeI=$H$9$k65;U$"$j3X=,$G$"$k!%(B
-$B$3$l$O!$F~NO$H$=$l$KBP$9$kK>$^$7$$=PNO$N%Z%"$,B??tM?$($i$l$k$3$H$+$i!$(B
-$B!VNc$+$i$N3X=,!W(B
+ニューラルネットには，
+いくつかの典型的な要素モデルがある．% \cite{amari88c}．
+その一つが，パーセプトロンを代表とする教師あり学習である．
+これは，入力とそれに対する望ましい出力のペアが多数与えられることから，
+「例からの学習」
 \cite{rumelhart86b}
-$B$H$h$P$l$F$$$k!%(B
-Deep Learning $B$NLdBj@_Dj$b$3$l$K$"$?$k$H9M$($F$h$$!%(B
+とよばれている．
+Deep Learning の問題設定もこれにあたると考えてよい．
 \vskip 2mm
 
-$B%K%e!<%i%k%M%C%H$K$D$$$F$O!$(B
-$B<!$N$h$&$J%$%a!<%8$r;}$C$F$*$1$P$h$$$@$m$&!%(B
+ニューラルネットについては，
+次のようなイメージを持っておけばよいだろう．
 \begin{enumerate}
-\item $B3hF0$N%@%$%J%_%/%9!%(B
-$B$3$l$O!V;W9M!W$KBP1~!%(B
-$B8D!9$NAG;R!J%K%e!<%m%s!K$O!$(B
-$BB>$NAG;R$N3hF0$r=E$_IU$-$NOB$G<u$1<h$j!$(B
-$B<+J,$,6=J3$9$k$+H]$+$r7hDj$9$k!%(B
+\item 活動のダイナミクス．
+これは「思考」に対応．
+個々の素子（ニューロン）は，
+他の素子の活動を重み付きの和で受け取り，
+自分が興奮するか否かを決定する．
 
-\item $B7k9g$N%@%$%J%_%/%9!%(B
-$B$3$l$O!V3X=,!W$KBP1~!%(B
-      $B!V=E$_!W!J7k9g2Y=E!$7k9g78?t!K$O!$(B
-$B3hF0$N%@%$%J%_%/%9$H$OHf3S$K$J$i$J$$$/$i$$!$(B
-$B$f$C$/$jJQ2=$9$k!%(B
-$B3X=,$N%@%$%J%_%/%9$H$b8@$&!%(B
-$B3X=,$,%m!<%+%k!J6I=jE*!K$H$O!$(B
-$j$$BHVL\$+$i(B$i$$BHVL\$NAG;R$X$N(B
-$B7k9g2Y=E(B$w_{ij}$$B$NJQ2=J,$,!$(B
-$j$$BHVL\$NAG;R$N3hF0$H(B$i$$BHVL\$NAG;R$N3hF0$K$N$_0MB8$9$k3X=,K!B'$N$3$H!%(B
-$B8m:95UEAHBK!$O!$%m!<%+%k$J3X=,$H$O9M$($i$l$F$$$J$$$,!$(B
-$B!V3hF0!W$r$=$l$>$l$NAG;R$,$J$s$i$+$N7A$G;}$C$F$$$k!V?.9f!W$H;W$($P!$(B
-      $B8m:95UEAHBK!(B\cite{rumelhart86b,amari88c,sgeman92a}$B$b%m!<%+%k$J(B
-      $B3X=,$H2r<a$G$-$k!%(B
+\item 結合のダイナミクス．
+これは「学習」に対応．
+      「重み」（結合荷重，結合係数）は，
+活動のダイナミクスとは比較にならないくらい，
+ゆっくり変化する．
+学習のダイナミクスとも言う．
+学習がローカル（局所的）とは，
+$j$番目から$i$番目の素子への
+結合荷重$w_{ij}$の変化分が，
+$j$番目の素子の活動と$i$番目の素子の活動にのみ依存する学習法則のこと．
+誤差逆伝搬法は，ローカルな学習とは考えられていないが，
+「活動」をそれぞれの素子がなんらかの形で持っている「信号」と思えば，
+      誤差逆伝搬法\cite{rumelhart86b,amari88c,sgeman92a}もローカルな
+      学習と解釈できる．
 
 \item 
-$BC1=c$J(B Yes$B!$(BNo $B$N0U;W7hDj$r$9$kAG;R!J?M4V!K$,B??tB8:_$9$k2sO)!J@$3&!&<R2q!K!%(B
-$BK\Mh$O!$BgNL$NAG;R$,JBNs$KF0:n$9$k!%(B
-$B7k9g78?t!J?M$H?M$H$N?.Mj4X78!K$O;~!99o!9$f$C$/$jJQ2=$7$F7A@.$5$l$k!$(B
+単純な Yes，No の意思決定をする素子（人間）が多数存在する回路（世界・社会）．
+本来は，大量の素子が並列に動作する．
+結合係数（人と人との信頼関係）は時々刻々ゆっくり変化して形成される，
 
 \end{enumerate}
 
 
-\section{$BNc$+$i$N3X=,!J65;U$"$j3X=,!$%Q!<%;%W%H%m%s$J$I!K(B\cite{rumelhart86b,amari88c,sgeman92a}}
+\section{例からの学習（教師あり学習，パーセプトロンなど）\cite{rumelhart86b,amari88c,sgeman92a}}
 %      
-\begin{itembox}[l]{$BLdBj@_Dj(B}
-      $B$$$^F~NO$H$=$l$KBP$9$kK>$^$7$$=PNO!J65;U?.9f!K$N%Z%"(B
+\begin{itembox}[l]{問題設定}
+      いま入力とそれに対する望ましい出力（教師信号）のペア
       $
       (\bx^1, \by^1),
       (\bx^2, \by^2), \dots
-      (\bx^m, \by^m)$ $B$,(B $m$$B8D!$M?$($i$l$F$$$k!%(B
-$B3FF~=PNO%Z%"(B $(\bx^\alpha, \by^\alpha), \alpha=1,\cdots,m$$B$O!$$"$kL$CN$N3NN(J,I[(B$\Pr(\bx,\by)$$B$K$7$?$,$C$F$$$k$H$9$k!%(B
-      $BL\E*$O!$(B$\bx^\alpha$ $B$rF~NO$9$k$H!$(B
-      $\by^\alpha$$B$r=PNO$9$k$h$&$J(B
-      $B2sO)!J%M%C%H%o!<%/!K(B$f(\bx;\btheta)$$B$r:n$k$3$H$G$"$k!%(B
-      $B$?$@$7!$M?$($i$l$?NcBj$KBP$7$F$@$1$G$O$J$/!$(B
-      $BL$CN$NF~NO(B$\bx$$B$KBP$7$F$b!$(B
-      $B@5$7$$Ez$((B$\by$$B$r=PNO$G$-$k2sO)$r:n$k$3$H$G$"$k!%(B
+      (\bx^m, \by^m)$ が $m$個，与えられている．
+各入出力ペア $(\bx^\alpha, \by^\alpha), \alpha=1,\cdots,m$は，ある未知の確率分布$\Pr(\bx,\by)$にしたがっているとする．
+      目的は，$\bx^\alpha$ を入力すると，
+      $\by^\alpha$を出力するような
+      回路（ネットワーク）$f(\bx;\btheta)$を作ることである．
+      ただし，与えられた例題に対してだけではなく，
+      未知の入力$\bx$に対しても，
+      正しい答え$\by$を出力できる回路を作ることである．
 
 
 \begin{itemize}
@@ -123,67 +123,67 @@ $j$$BHVL\$NAG;R$N3hF0$H(B$i$$BHVL\$NAG;R$N3hF0$K$N$_0MB8$9$k3X=,K!B'$N$3$H!%
 \end{itemize}
 \end{itembox}
 
-$B2sO)$N@-<A$O7k9g78?t$NCM$G7h$^$k!%(B
-$B$9$Y$F$N7k9g78?t$r$^$H$a$F%Q%i%a!<%?(B$\btheta=(w_{12},w_{13},\cdots)$$B$GI=$=$&!%(B
-$B2sO)$r@_7W$9$k$3$H$O!$(B
-$B4X?t(B$f(\bx;\btheta)$$B$r@_7W$9$k$3$H$H$b8@$($k!%(B
-$B$7$?$,$C$F(B
-$B2sO)(B$\approx$$B4X?t$G$"$k!%(B
-$B3X=,$H$O!$=i4|CM$H$7$FM?$($i$l$?IT40A4$J%Q%i%a!<%?(B$\btheta$$B$NCM$r!$(B
-$BNcBj!J71N}%G!<%?!$(Btraining set$B!K(B
+回路の性質は結合係数の値で決まる．
+すべての結合係数をまとめてパラメータ$\btheta=(w_{12},w_{13},\cdots)$で表そう．
+回路を設計することは，
+関数$f(\bx;\btheta)$を設計することとも言える．
+したがって
+回路$\approx$関数である．
+学習とは，初期値として与えられた不完全なパラメータ$\btheta$の値を，
+例題（訓練データ，training set）
 ${\cal D} = \{
       (\bx^1, \by^1), \dots
       (\bx^m, \by^m)
       \}
-      $$B$K9g$&$h$&$KJQ$($F$$$/$3$H$G$"$k!%(B
-$B3X=,$O!$%Q%i%a!<%??dDj$H$b$$$&!%(B
-$B%Q%i%a!<%?(B$\btheta$$B$O!$(B
-$BNcBj(B${\cal D}$$B$K0MB8$7$F7h$^$k$N$G!$(B
-$B2sO)(B$f(\bx;\btheta)$$B$N$3$H$r(B $f(\bx;{\cal D})$$B$H$b5-=R$9$k!%(B
+      $に合うように変えていくことである．
+学習は，パラメータ推定ともいう．
+パラメータ$\btheta$は，
+例題${\cal D}$に依存して決まるので，
+回路$f(\bx;\btheta)$のことを $f(\bx;{\cal D})$とも記述する．
 
 
-$B:G6a=PHG$5$l$?5!3#3X=,$N=q@R$G$O!$(B
-Tensorflow, Chainer $B$J$I5!3#3X=,$N%U%l!<%`%o!<%/$r;H$$!$(B
-$B%3%s%T%e!<%?%7%_%e%l!<%7%g%s$r$9$kJ}K!$,(B
-$B5-=R$5$l$F$$$k!%(B
-$B$=$3$rF~8}$K$7$F$b0-$/$O$J$$$,!$(B
-$B$^$:>.$5$$LdBj$r2r$/2sO)$N%3%s%T%e!<%?%W%m%0%i%`$r%<%m$+$i(B
-$B=q$$$F$_$h$&!%(B
-$BBg5,LO$J2sO)$,$I$N$h$&$KF0$$$F$$$k$+!$(B
-$BF0:n86M}$NM}2r$,?<$^$k$O$:$G$"$k!%(B
+最近出版された機械学習の書籍では，
+Tensorflow, Chainer など機械学習のフレームワークを使い，
+コンピュータシミュレーションをする方法が
+記述されている．
+そこを入口にしても悪くはないが，
+まず小さい問題を解く回路のコンピュータプログラムをゼロから
+書いてみよう．
+大規模な回路がどのように動いているか，
+動作原理の理解が深まるはずである．
 
 
-\subsection{$B2]Bj(B}
-$B!V7OE}E*$K!W2r@O$9$k!$$H$O$I$&$$$&$3$H$+CN$k$3$H$rL\E*$K$9$k$?$a!$(B
-$B2]Bj$O!$(B
-$BM-L>$JO@J8(B\cite{rumelhart86b,sgeman92a}$B$K7G:\$5$l$F$$$k7k2L$r(B
-$B:F8=$7!$$=$N7k2L$r!X9M;!!Y$9$k$3$H$H$9$k!%(B
-$BK\<AE*$G$J$$E@$^$G:F8=$9$kI,MW$O$J$$!%(B
-$B$I$N2]Bj$b=PNOAX$O(B1$B8D$N=PNOAG;R$+$i9=@.$5$l$k!%(B
-$BF~NOAX$NAG;R?t(B$n_1$$B$d!$(B
-$BCf4VAX!JBh(B2$BAX!$1#$lAX!K$NAG;R?t(B$n_2$$B$O!$(B
-$B2]Bj$K$h$j0[$J$k!%(B
+\subsection{課題}
+「系統的に」解析する，とはどういうことか知ることを目的にするため，
+課題は，
+有名な論文\cite{rumelhart86b,sgeman92a}に掲載されている結果を
+再現し，その結果を『考察』することとする．
+本質的でない点まで再現する必要はない．
+どの課題も出力層は1個の出力素子から構成される．
+入力層の素子数$n_1$や，
+中間層（第2層，隠れ層）の素子数$n_2$は，
+課題により異なる．
 \rhead{}
 \begin{enumerate}
-\item XOR $B%2!<%H$N<B8=(B $B!JF~NO(B2$B<!85!$(B$n_1=2, n_2=2,3,\cdots$$B!K(B
-\item mirror symmetry $B$N8!=P!J(B$n_1=6$$B!%(B \cite{rumelhart86b}$B$N(B Fig. 1$B!K(B
+\item XOR ゲートの実現 （入力2次元，$n_1=2, n_2=2,3,\cdots$）
+\item mirror symmetry の検出（$n_1=6$． \cite{rumelhart86b}の Fig. 1）
  \begin{itemize}
-  \item $BO@J8DL$j$N7k2L$,F@$i$l$J$$2DG=@-$,9b$$!%$=$l$O$I$3$K860x$,$"$k$+!%(B
-	$B1#$lAX$NAG;R?t(B 2 $B$G$G$-$k$N$+!%9M;!$9$k2ACM$"$j!%(B
-  \item $B7k9g78?t$N=i4|CM!$%P%C%A3X=,$+C`<!3X=,$+!%(B
+  \item 論文通りの結果が得られない可能性が高い．それはどこに原因があるか．
+	隠れ層の素子数 2 でできるのか．考察する価値あり．
+  \item 結合係数の初期値，バッチ学習か逐次学習か．
 
  \end{itemize}
 
 
 
- \item $B%5%$%s%+!<%V$G6h@Z$i$l$?NN0h$NJ,N`!J(B\cite{sgeman92a}$B$N(BFig.3$B!K(B
+ \item サインカーブで区切られた領域の分類（\cite{sgeman92a}のFig.3）
 
 \begin{enumerate}
- \item nearest-neighbor $B!J(B\cite{sgeman92a}$B$N(B
-       Fig.4 $B!A(B Fig.7$B!K(B
+ \item nearest-neighbor （\cite{sgeman92a}の
+       Fig.4 〜 Fig.7）
  \item feedforward neural network
-       $B!J(B$n_1=2$$B!%(B\cite{sgeman92a}$B$N(B
-       Fig.8 $B!A(B Fig.11$B!K(B
+       （$n_1=2$．\cite{sgeman92a}の
+       Fig.8 〜 Fig.11）
 \end{enumerate}
 
 \end{enumerate}
@@ -192,102 +192,102 @@ Tensorflow, Chainer $B$J$I5!3#3X=,$N%U%l!<%`%o!<%/$r;H$$!$(B
 
 
 
-\subsection{$B65;U$"$j3X=,$N86M}(B}
-$B0J2<!$?^(B1$B$K5-=R$7$?5-9f$rMQ$$$F@bL@$9$k!%(B
-$BF~NOAX$K?.9f(B$\bx$$B$,M?$($i$l$k$H!$(B
-$BBh(B2$BAX$N(B$j$$BHVL\$N=PNO(B $u_j$$B$,(B
+\subsection{教師あり学習の原理}
+以下，図1に記述した記号を用いて説明する．
+入力層に信号$\bx$が与えられると，
+第2層の$j$番目の出力 $u_j$が
 \begin{eqnarray}
 u_j & = & g \left ( \sum_{k=1}^{n_1} s_{jk}x_k - \theta_j \right )
 \end{eqnarray}
-$B$H7W;;$G$-$k(B
-$B!J(B$j=1,\cdots,n_2$$B!K!%(B
-$B$3$3$G!$(B
-$s_{jk}$$B$O!$Bh(B1$BAX(B$k$$BHVL\$NAG;R$+$iBh(B2$BAX(B$j$$BHVL\$NAG;R$X$N(B
-$B7k9g$N=E$_!$(B
-$\theta_j$$B$OBh(B2$BAX(B$j$$BHVL\$NAG;R$N$7$-$$CM$G$"$k!%(B
-$g(u)$$B$O!$%K%e!<%m%s$N=PNO4X?t$G(B
+と計算できる
+（$j=1,\cdots,n_2$）．
+ここで，
+$s_{jk}$は，第1層$k$番目の素子から第2層$j$番目の素子への
+結合の重み，
+$\theta_j$は第2層$j$番目の素子のしきい値である．
+$g(u)$は，ニューロンの出力関数で
 \begin{eqnarray}
 g(u) & = & \frac{1}{1 + \text{e}^{-u} } 
 \end{eqnarray}
-$B$N>l9g$r9M$($k!%(B
-$B$3$3$G(B $x_0=1$$B$H$$$&>o$K6=J3$9$kAG;R$r9M$($k$H(B
+の場合を考える．
+ここで $x_0=1$という常に興奮する素子を考えると
 \begin{eqnarray}
 u_j & = & g \left ( \sum_{k=0}^{n_1} s_{jk}x_k \right )
 \end{eqnarray}
-$B$H4J7i$K5-=R$G$-$k!%(B
-$s_{j0} = -\theta_j$$B$N$3$H$rAG;R$N%P%$%"%9$H$h$V!%(B
+と簡潔に記述できる．
+$s_{j0} = -\theta_j$のことを素子のバイアスとよぶ．
 %
-$BBh(B2$BAX$N3FAG;R$N=PNO$,7h$^$k$H!$(B
-$B=PNOAX$NAG;R$N=PNO$,(B
+第2層の各素子の出力が決まると，
+出力層の素子の出力が
 \begin{eqnarray}
  z & = & g \left ( \sum_{j=0}^{n_2} w_j u_j \right ) \\
  & = & g \left ( \sum_{j=0}^{n_2} w_j g \left ( \sum_{k=0}^{n_1} s_{jk}x_k \right ) \right ) 
  \end{eqnarray}
-$B$H7W;;$G$-$k!J(B$w_0$$B$O%P%$%"%99`!K!%(B
-$B$3$3$G!$(B
-$w_j$$B$O!$Bh(B2$BAX(B$j$$BHVL\$NAG;R$+$i=PNOAX$NAG;R$X$N(B
-$B7k9g$N=E$_$G$"$k!%(B
+と計算できる（$w_0$はバイアス項）．
+ここで，
+$w_j$は，第2層$j$番目の素子から出力層の素子への
+結合の重みである．
 
 
-$BNcBj!J71N}%G!<%?!$(Btraining set$B!K(B
+例題（訓練データ，training set）
 ${\cal D} = \{
       (\bx^1, y^1), \dots
       (\bx^m, y^m)
       \}
-      $$B$,(B$m$$B8D!$M?$($i$l$F$$$k$H$9$k!%(B
-      $BF~NO(B$\bx^\alpha$$B$KBP$9$kK>$^$7$$=PNO$,(B
-      $y^\alpha \in \{0,1\}$$B$G$"$k(B
-      $B!J8=<B$K$O(B $ \lim_{u \rightarrow \infty} g(u)= 1$ $B$J$N$G!$(B
-      $y^\alpha \in \{0.1,0.9\}$$B$H$7$?$[$&$,$$$$$+$b$7$l$J$$!K!%(B
-%      $y^\alpha(\bx^\alpha)$$B$H=q$3$&!%(B
-$B$$$^!$L\E*$O!$$"$kF~NO(B$\bx$$B$,M?$($i$l$?;~!$(B
+      $が$m$個，与えられているとする．
+      入力$\bx^\alpha$に対する望ましい出力が
+      $y^\alpha \in \{0,1\}$である
+      （現実には $ \lim_{u \rightarrow \infty} g(u)= 1$ なので，
+      $y^\alpha \in \{0.1,0.9\}$としたほうがいいかもしれない）．
+%      $y^\alpha(\bx^\alpha)$と書こう．
+いま，目的は，ある入力$\bx$が与えられた時，
 \begin{eqnarray}
 E & = & \frac{1}{2} 
 \sum_{\alpha=1}^{m} 
 \left ( z(\bx^\alpha) - y^\alpha \right )^2
 \end{eqnarray}
-$B$r:G>.2=$9$k$3$H$@$H9M$($h$&!$(B
-$E$$B$rB;<:4X?t$H$$$&!%(B
-$B$b$A$m$sJL$NB;<:4X?t$rDj5A$7!$$=$l$r:G>.2=$7$F$b$h$$!%(B
+を最小化することだと考えよう，
+$E$を損失関数という．
+もちろん別の損失関数を定義し，それを最小化してもよい．
 
 
 
-$B%Q%i%a!<%?(B
-$\{s_{jk} \}, \{w_j\}$ $B$O!$(B
-$B=i4|CM$H$7$F!$$G$?$i$a$JCM$,@_Dj$5$l$F$$$k!%(B
-$B$7$?$,$C$F!$(B
-$B$?$H$($P?.9f(B $\bx^5$ $B$r2sO)$KF~NO$7$F$b!$(B
-$B=PNO(B $z=z(\bx^5)$ $B$H$7$F(B $y^5$ $B$HF1$8CM$,=PNO$5$l$k$3$H$O!$$^$:$J$$!%(B
-$B2sO)$,K>$^$7$$=PNO$K$h$j6a$$CM$r=P$9$h$&$K!$(B
-$B3F%Q%i%a!<%?$r!$(B
-$B>/$7Bg$-$/$9$k$+!$>.$5$/$9$k$+!$JQ$($l$P$h$$!%(B
-$B$I$A$i$KF0$+$;$P$h$$$+$O!$(B
-$ \frac{\partial E}{\partial w_{j}} $ $B$r7W;;$7$F$_$k$H$h$$!%(B
-$ \frac{\partial E}{\partial w_{j}} $ $B$,(B
-$B@5$NCM$N>l9g!$(B
-$w_j$ $B$rBg$-$/$9$k$k$H!$B;<:(B $E$$B$,Bg$-$/$J$k!%(B
-$E$$B$O>.$5$/$7$?$$$N$G!$(B
+パラメータ
+$\{s_{jk} \}, \{w_j\}$ は，
+初期値として，でたらめな値が設定されている．
+したがって，
+たとえば信号 $\bx^5$ を回路に入力しても，
+出力 $z=z(\bx^5)$ として $y^5$ と同じ値が出力されることは，まずない．
+回路が望ましい出力により近い値を出すように，
+各パラメータを，
+少し大きくするか，小さくするか，変えればよい．
+どちらに動かせばよいかは，
+$ \frac{\partial E}{\partial w_{j}} $ を計算してみるとよい．
+$ \frac{\partial E}{\partial w_{j}} $ が
+正の値の場合，
+$w_j$ を大きくするると，損失 $E$が大きくなる．
+$E$は小さくしたいので，
 \begin{eqnarray}
 w_j & := & w_j  + \Delta w_{j} =  w_j - \mu \frac{\partial E}{\partial w_{ij}} 
 \end{eqnarray}
-$B$H99?7$9$l$P$h$$$@$m$&(B
-$B!JBg$-$/$9$k$+>.$5$/$9$k$+$,LdBj$G!$(B
-$BF0$+$9Bg$-$5$r(B $ \frac{\partial E}{\partial w_{j}} $
-$B$KHfNc$5$;$k$N$,$$$$$+!$$H$$$&$3$H$O5DO@$NM>CO$,$"$k!K!%(B
-$B$3$3$G!$(B
-$\mu$$B$O(B$\mu = 0.05$$B$J$I$N!$>.$5$$@5$NCM$G!$(B
-$B3X=,78?t$H$h$P$l$F$$$k!%(B
-$BF1MM$K!$(B
-$ \frac{\partial E}{\partial w_{j}} $ $B$,(B
-$BIi$NCM$N>l9g!$(B
-$w_j$ $B$rBg$-$/$9$k$H(B$E$$B$,>.$5$/$J$k$3$H$r0UL#$7$F$$$k!%(B
-$BB;<:(B $E$$B$O>.$5$/$7$?$$$N$G(B
-$B$d$O$j(B
+と更新すればよいだろう
+（大きくするか小さくするかが問題で，
+動かす大きさを $ \frac{\partial E}{\partial w_{j}} $
+に比例させるのがいいか，ということは議論の余地がある）．
+ここで，
+$\mu$は$\mu = 0.05$などの，小さい正の値で，
+学習係数とよばれている．
+同様に，
+$ \frac{\partial E}{\partial w_{j}} $ が
+負の値の場合，
+$w_j$ を大きくすると$E$が小さくなることを意味している．
+損失 $E$は小さくしたいので
+やはり
 \begin{eqnarray}
 w_j & := &  w_j - \mu \frac{\partial E}{\partial w_{ij}} 
 \end{eqnarray}
-$B$H!$99?7$9$l$P!$B;<:(B $E$$B$O>.$5$/$J$k!%(B
-$B6qBNE*$K!$JPHyJ,$N9`$r7W;;$7$h$&!%(B
+と，更新すれば，損失 $E$は小さくなる．
+具体的に，偏微分の項を計算しよう．
 %
 \begin{eqnarray}
 E & = & \frac{1}{2} 
@@ -295,7 +295,7 @@ E & = & \frac{1}{2}
 \left ( z(\bx^\alpha) - y^\alpha \right )^2\\
  z & = & g \left ( \sum_{j=0}^{n_2} w_j u_j(\bx^\alpha)\right ) 
  \end{eqnarray}
- $B$G$"$k$N$G!$(B
+ であるので，
 \begin{eqnarray}
 \Delta w_{j} & = & - \mu \frac{\partial E}{\partial w_{j}} 
  = 
@@ -307,92 +307,92 @@ E & = & \frac{1}{2}
 g' \biggl ( \sum_{j=0}^{n_2} w_j u_j(\bx^\alpha)  \biggr )   u_j(\bx^\alpha) 
 \biggr \}
 \end{eqnarray}
-$B$H=q$1$k!%(B
-$B<B$O!$$3$N99?7<0$r(B
+と書ける．
+実は，この更新式を
 \begin{eqnarray}
 \Delta w_{j}  & = & \mu   r u_j 
 \end{eqnarray}
-$B$H!$(B
-$B$9$C$-$j$H2r<a$9$k8+J}$,$"$k!%(B
-$B$3$3$G(B$r$$B$O=PNOAG;R$,;}$C$F$$$k$J$K$+$G$"$k!J$"$H$G3X=,?.9f$H$h$V!K!%(B
-$B$3$N99?7<0$O(B
-$B=PNOAX$NAG;R$HCf4VAX$N(B
-$j$$BHVL\$NAG;R$H$N7k9g$r!$(B$r$$B$H$N3]$1;;$KHfNc$7$F99?7!$$H$$$&7A$K$J$C$F$$$k!%(B
-$B$3$&$$$&7A$r(BHebb $B3X=,$H$$$&!%(B
-$B?.9f(B $\bx^5$ $B$,2sO)$KF~NO$5$l$?>l9g$G3X=,?.9f(B$r$$B$r6qBNE*$K9M$($h$&!%(B
+と，
+すっきりと解釈する見方がある．
+ここで$r$は出力素子が持っているなにかである（あとで学習信号とよぶ）．
+この更新式は
+出力層の素子と中間層の
+$j$番目の素子との結合を，$r$との掛け算に比例して更新，という形になっている．
+こういう形をHebb 学習という．
+信号 $\bx^5$ が回路に入力された場合で学習信号$r$を具体的に考えよう．
 \begin{enumerate}
- \item $B?.9f(B $\bx^5$ $B$r2sO)$KF~NO(B
-\item $B=PNOAX$NAG;R$NFbIt>uBV(B $ v(\bx^5) = \sum_{j=0}^{n_2} w_j u_j(\bx^5)
-      $ $B$r7W;;!%(B
- \item $B=PNO(B $z=g(v(\bx^5))$$B$HK>$^$7$$=PNO$H$N8m:9(B $ d = z(\bx^\alpha) - y^\alpha $ $B$r7W;;!%(B
- \item  $ r = -d g'(v(\bx^5)) $ $B$HDj5A$9$k$H!J$3$l$O=PNOAG;R$N3X=,?.9f!K!$(B
-	$BF~NO(B$\bx^5$$B$KBP$7$F$@$1$NJQ2=J,$O(B $ \Delta w_{j} = \mu r u_j(\bx^5) $
-	$B$H=q$1$k!%(B
-$g'(v)$ $B$OAG;R$N=PNO4X?t(B$g(v)$$B$NHyJ,$G!$(B
+ \item 信号 $\bx^5$ を回路に入力
+\item 出力層の素子の内部状態 $ v(\bx^5) = \sum_{j=0}^{n_2} w_j u_j(\bx^5)
+      $ を計算．
+ \item 出力 $z=g(v(\bx^5))$と望ましい出力との誤差 $ d = z(\bx^\alpha) - y^\alpha $ を計算．
+ \item  $ r = -d g'(v(\bx^5)) $ と定義すると（これは出力素子の学習信号），
+	入力$\bx^5$に対してだけの変化分は $ \Delta w_{j} = \mu r u_j(\bx^5) $
+	と書ける．
+$g'(v)$ は素子の出力関数$g(v)$の微分で，
 \begin{eqnarray}
 g(v) & = & \frac{1}{1 + \text{e}^{-v/T} } 
 \end{eqnarray}
-$B$N>l9g!J(B$T$$B$O%Q%i%a!<%?!K(B
+の場合（$T$はパラメータ）
 \begin{eqnarray}
 g'(v) & = & \frac{1}{T} g(v) ( 1 - g(v) )
 \end{eqnarray}
-$B$G$"$j!J<B:]$KHyJ,$73NG'$7$F$_$h!K!$(B
-$T=1$$B$N>l9g!$(B
-$B=PNOCM(B $z=g(v) $ $B$G$"$k$N$G!$(B
+であり（実際に微分し確認してみよ），
+$T=1$の場合，
+出力値 $z=g(v) $ であるので，
 $ g' = z(1-z) $
-$B$H4JC1$K7W;;$G$-$k!%(B
-$B$7$?$,$C$F(B
+と簡単に計算できる．
+したがって
 \begin{eqnarray}
  r & = &  - (z-y) z (1-z) =  (y -z) z (1-z)
 \end{eqnarray}
-$B$,3X=,?.9f$G$"$k!%(B
+が学習信号である．
 \end{enumerate}
 
 \noindent
-{\gt $B9M;!!'(B}
-$B$3$N3X=,?.9f$N<0$OLLGr$$$N$G!$>/$7$N4V!$$K$i$a$C$3$7$F<0$N0UL#$r9M$($F$_$h$&!%(B
-$B<+J,$,=PNOAG;R!J%\%9!K$K$J$C$?5$J,$K$J$l$P$h$/$o$+$k!%(B
-$ \Delta w_{j}  =  \mu   r u_j $ $B$G$"$k$N$G!$(B
-$r$$B$N@5Ii$,=EMW$K$J$k!%(B
-$z(1-z)$$B$N9`$O>o$K@5!J$b$7$/$O(B$0$$B!K$J$N$G!$(B
-$B$H$j$"$($:$O5$$K$7$J$$$G$h$$$@$m$&!%(B
-$B$$$^2sO)$KF~NO$,M?$($i$l!$=g$K7W;;$7!$=PNO$r7W;;!J%\%9$,0U;W7hDj!K$7$?$H$9$k!%(B
-$B2sO)$N=PNO(B$z$$B$HK>$^$7$$=PNO(B$y$$B$,0lCW$7$F$$$k>l9g!$(B
-$r=0$$B$H$J$k!%(B
-$B99?7<0$O!$(B
-$B7k9g78?t$NCM$O99?7$7$J$/$FNI$$!$$H$$$&$3$H$r0UL#$7$F$$$k!%(B
-$B0lJ}(B $y=1$$B$r=PNO$9$Y$-$J$N$K(B$z=0$$B$@$C$?>l9g$O!$(B
-$ \Delta w_{j}  =  \mu   r u_j $ $B$G$"$k$N$G!$(B
-$B=PNO$,@5$NAG;R!JIt2<!K$H$O7k9g$r6/$a!J$b$C$H7/$N0U8+$rB:=E$9$Y$-$@$C$?!K!$(B
-$B=PNO$,Ii$NAG;R$H$O!J$*$^$($N$;$$$G4V0c$($?!*!$$H$$$&$3$H$G!K7k9g$r<e$a$k$3$H$K$J$k!%(B
-$B5U$K!$(B$y=0$$B$r=PNO$9$Y$-$J$N$K(B$z=1$$B$r=PNO$7$F$7$^$C$?>l9g$O!$(B
-$B=PNO$,@5$NAG;R$H$O7k9g<e$a!J$*$^$($N$;$$$G4V0c$($?!*!K!$(B
-$B=PNO$,Ii$NAG;R$H$O7k9g$r6/$a$k$3$H$K$J$k!%(B
-$r$$B$,$N@5!JIi!K$G$"$k$H$$$&$3$H$O!$$$$^$h$j$b!$$b$C$H@5!JIi!K$NCM$r=PNO(B
-$B$;$h!$$H$$$&65;U?.9f$G$"$k$H;W$C$F$h$$!%(B
+{\gt 考察：}
+この学習信号の式は面白いので，少しの間，にらめっこして式の意味を考えてみよう．
+自分が出力素子（ボス）になった気分になればよくわかる．
+$ \Delta w_{j}  =  \mu   r u_j $ であるので，
+$r$の正負が重要になる．
+$z(1-z)$の項は常に正（もしくは$0$）なので，
+とりあえずは気にしないでよいだろう．
+いま回路に入力が与えられ，順に計算し，出力を計算（ボスが意思決定）したとする．
+回路の出力$z$と望ましい出力$y$が一致している場合，
+$r=0$となる．
+更新式は，
+結合係数の値は更新しなくて良い，ということを意味している．
+一方 $y=1$を出力すべきなのに$z=0$だった場合は，
+$ \Delta w_{j}  =  \mu   r u_j $ であるので，
+出力が正の素子（部下）とは結合を強め（もっと君の意見を尊重すべきだった），
+出力が負の素子とは（おまえのせいで間違えた！，ということで）結合を弱めることになる．
+逆に，$y=0$を出力すべきなのに$z=1$を出力してしまった場合は，
+出力が正の素子とは結合弱め（おまえのせいで間違えた！），
+出力が負の素子とは結合を強めることになる．
+$r$がの正（負）であるということは，いまよりも，もっと正（負）の値を出力
+せよ，という教師信号であると思ってよい．
 
-$B$3$3$^$G=PNOAG;R$,(B $0,1$$B$N4V$NCM$r$H$k>l9g$r9M$($F$-$?$,!$(B
-$-1,1$$B$N4V$r$H$k%b%G%k(B
+ここまで出力素子が $0,1$の間の値をとる場合を考えてきたが，
+$-1,1$の間をとるモデル
 \begin{eqnarray}
  g(v) & = & \tanh(v) = \frac{e^v - e^{-v}}{e^v + e^{-v}}
 \end{eqnarray}
-$B$r9M$($k>l9g$b$h$/$"$k(B\cite{sgeman92a}$B!%(B
-$B$3$3$G@0M}$7$F$*$3$&!%$3$l$rHyJ,$9$k$H(B
+を考える場合もよくある\cite{sgeman92a}．
+ここで整理しておこう．これを微分すると
 \begin{eqnarray}
  g'(v) & = & (1-g(v)^2) = (1-z^2)
 \end{eqnarray}
-$B$H4JC1$K=q$1$k!J$d$O$j<B:]$KHyJ,$73NG'$7$F$*$/$3$H!K!%(B
-$\{0,1\}$$B%b%G%k$N>l9g(B $z(1-z)$ $B$G$"$C$?9`$,!$(B
-$(1-z^2)$$B$H$J$k$,!$(B
-$B$3$N9`$b>o$K(B$0$$B0J>e(B$1$$B0J2<$NCM$r$H$k!JIi$K$O$J$i$J$$!K(B
-$B$3$H$OF1$8$G$"$k!%(B
+と簡単に書ける（やはり実際に微分し確認しておくこと）．
+$\{0,1\}$モデルの場合 $z(1-z)$ であった項が，
+$(1-z^2)$となるが，
+この項も常に$0$以上$1$以下の値をとる（負にはならない）
+ことは同じである．
 \vskip 5mm
 
 
 \noindent
-{\gt $B1i=,2]Bj!'(B}
-$\Delta s_{jk}$ $B$K$D$$$F$O!$<+J,$G7W;;$7$F$_$h(B
-$B!J(B$s_{jk}$$B$,4X78$7$F$$$k9`$K!{$r$D$1$k$H7W;;$7$d$9$$!K!%(B\\
+{\gt 演習課題：}
+$\Delta s_{jk}$ については，自分で計算してみよ
+（$s_{jk}$が関係している項に○をつけると計算しやすい）．\\
 \includegraphics[width=.3\linewidth]{figs/backpropagation_partial_derivative101.eps}
 $
 \frac{\partial E}{\partial s_{jk}} =
@@ -404,18 +404,18 @@ $
 $
 \vspace*{10mm}
 
-$B=PNOAX$NAG;R$,J#?t8D$K$J$C$?>l9g$K$D$$$F!$(B
-$B%P%C%/%W%m%Q%2!<%7%g%s$N3X=,<0$r=q$$$F$*$3$&!%(B
-Hebb$B3X=,$r0lHL2=$7$?$b$N$G$"$k$H9M$($l$P!$$o$+$j$d$9$$(B
-$B!J?^(B\ref{fig:ghebb}$B!K!%(B
+出力層の素子が複数個になった場合について，
+バックプロパゲーションの学習式を書いておこう．
+Hebb学習を一般化したものであると考えれば，わかりやすい
+（図\ref{fig:ghebb}）．
 \begin{figure}[hbt]
 \begin{center}
  \includegraphics[width=.7\linewidth]{figs/generalized_hebb101.eps}
-\caption{$BF~NOB&$NAG;R$N=PNO$H=PNOB&$NAG;R$N3X=,?.9f$H$N(BHebb$B3X=,(B\label{fig:ghebb}}
+\caption{入力側の素子の出力と出力側の素子の学習信号とのHebb学習\label{fig:ghebb}}
 \end{center}
 \end{figure}
 
-$BBh(B2$BAX$N(B$j$$BHVL\$NAG;R$H!$Bh(B3$BAX$N(B$i$$BHVL\$NAG;R4V$N7k9g$N3X=,$O(B
+第2層の$j$番目の素子と，第3層の$i$番目の素子間の結合の学習は
 \begin{eqnarray}
 \Delta w_{ij} 
 & = & - \mu \frac{\partial E}{\partial w_{ij}} 
@@ -432,12 +432,12 @@ u_j
 \\
 & = & \mu r_i  u_j
 \end{eqnarray}
-$B$H=q$1$k$N$G!$(B
-$B$3$l$OBh(B3$BAX(B$i$$BHVL\$NAG;R$N3X=,?.9f(B$r_i$$B$H(B
-$BBh(B2$BAX(B$j$$BHVL\$NAG;R$N=PNO$H$N(B Hebb$B3X=,$G$"$k(B
-$B!J(B$i=1,\cdots,n_3, j=0,\cdots,n_2$$B!K!%(B
-$BBh(B1$BAX(B$k$$BHVL\$NAG;R$HBh(B2$BAX(B$j$$BHVL\$NAG;R$N7k9g78?t$r(B
-$s_{jk}$$B$H$9$k$H(B
+と書けるので，
+これは第3層$i$番目の素子の学習信号$r_i$と
+第2層$j$番目の素子の出力との Hebb学習である
+（$i=1,\cdots,n_3, j=0,\cdots,n_2$）．
+第1層$k$番目の素子と第2層$j$番目の素子の結合係数を
+$s_{jk}$とすると
 \begin{eqnarray}
 \Delta s_{jk} 
 & = & - \mu \frac{\partial E}{\partial s_{jk}} 
@@ -451,59 +451,59 @@ x_k \\
 & = & 
 \mu r'_j  x_k
 \end{eqnarray}
-$B$H!$$d$O$j(B Hebb$B3X=,$N7A$G5-=R$G$-$k!J(B$k=0,\cdots,n_1, j=1,\cdots,n_2$$B!K!%(B
-$BCf4VAX$N(B$j$$BHVL\$NAG;R$N3X=,?.9f(B$r_j'$$B$,!$(B
-$B=PNOAX$N3X=,?.9f(B$r_i$$B$N=E$_IU$1$NOB(B$ \sum_{i=1}^{n_3} w_{ij} r_i $$B$G7W;;$G$-$kE@$,!$(B
-$B%P%C%/%W%m%Q%2!<%7%g%s$H$$$&L>A0$NM3Mh$G$"$k!%(B
+と，やはり Hebb学習の形で記述できる（$k=0,\cdots,n_1, j=1,\cdots,n_2$）．
+中間層の$j$番目の素子の学習信号$r_j'$が，
+出力層の学習信号$r_i$の重み付けの和$ \sum_{i=1}^{n_3} w_{ij} r_i $で計算できる点が，
+バックプロパゲーションという名前の由来である．
 
-$B$3$3$^$G(B3$BAX$+$i$J$k2sO)$K$D$$$F@bL@$7$F$-$?$,!$AX$r@Q$_=E$M$?(B
-100$BAX2sO)$N>l9g$b!$(B
-$B$3$N3X=,$N;EJ}$OJQ$o$i$J$$!%(B
+ここまで3層からなる回路について説明してきたが，層を積み重ねた
+100層回路の場合も，
+この学習の仕方は変わらない．
 
 
-$B$3$3$^$G!$B;<:4X?t(B
+ここまで，損失関数
 \begin{eqnarray}
 E & = & \frac{1}{2} 
 \sum_{\alpha=1}^{m} 
 \left ( z(\bx^\alpha) - y^\alpha \right )^2
 \end{eqnarray}
-$B$r:G>.2=$9$k$3$H$r9M$($F$-$?!%(B
-$B$3$3$G!$JL$NB;<:4X?t(B$E$$B$r9M$($F$_$k!%(B
-$B:G=*AX$NAG;R$N(B
-$B=PNO(B $ z = f(\btheta | \bx)$ $B$NCM$O(B
-$0$$B$+$i(B$1$$B$NCM$r$H$k!%(B
-$B$3$NCM$rMQ$$$k$H!$(B
-$B!VF~NO(B$\bx$$B$,M?$($i$l$?$H$-$K!$2sO)$,@52r$r=PNO$9$k>r7oIU$-3NN(!W(B
-$B$O(B
+を最小化することを考えてきた．
+ここで，別の損失関数$E$を考えてみる．
+最終層の素子の
+出力 $ z = f(\btheta | \bx)$ の値は
+$0$から$1$の値をとる．
+この値を用いると，
+「入力$\bx$が与えられたときに，回路が正解を出力する条件付き確率」
+は
 $ z^y (1-z)^{1-y}$
- $B$H=q$1$k!%(B
- $B$7$?$,$C$F!$(B
- $B3X=,$rL`EY(B
+ と書ける．
+ したがって，
+ 学習を尤度
 \begin{eqnarray}
  L & = &
 \prod_{\alpha=1}^{m} 
 z(\bx^\alpha)^{y^\alpha} (1-z(\bx^\alpha))^{1-{y^{\alpha}}}
 \end{eqnarray}
-$B$r:GBg2=$K$9$k%Q%i%a!<%?$r5a$a$kLdBj$H$7$F$bDj<02=$G$-$k!%(B
-$B@h$N(B2$B>h8m:9:G>.2=$N3X=,$HHf3S$9$k$?$a!$(B
-$B:GBg2=$G$O$J$/:G>.2=$H$7$FDj<02=$9$k$H(B
+を最大化にするパラメータを求める問題としても定式化できる．
+先の2乗誤差最小化の学習と比較するため，
+最大化ではなく最小化として定式化すると
 \begin{eqnarray}
  E & = &
 - \sum_{\alpha=1}^{m} 
 \biggl \{ y^\alpha \log z(\bx^\alpha) + (1-y^\alpha) \log \bigl ( 1-z(\bx^\alpha)
        \bigr )  \biggr \}
 \end{eqnarray}
-$B$H$J$k!JBP?t4X?t$OC1D4A}2C4X?t$J$N$G!$BP?t$r$H$C$F$b:G>.(B
-$B2=$9$k$3$H<+BN$OJQ$o$i$J$$!K!%(B
-       $B$3$l$r3F7k9g78?t$GJPHyJ,$7$?CM$r7W;;$7!$(B
-       2$B>h8m:98m:9:G>.$N>l9g$H7k2L$rHf3S$7$F$_$h$&!%(B
-       $BNcBj$N%$%s%G%C%/%9(B $\alpha$$B$O!$<j7W;;$KM>7W$J$N$G!$5-=R$r>JN,$7(B
+となる（対数関数は単調増加関数なので，対数をとっても最小
+化すること自体は変わらない）．
+       これを各結合係数で偏微分した値を計算し，
+       2乗誤差誤差最小の場合と結果を比較してみよう．
+       例題のインデックス $\alpha$は，手計算に余計なので，記述を省略し
 \begin{eqnarray}
  E & = & - \biggl \{ 
     y \log z + (1-y) \log ( 1-z)
 \biggl \}
 \end{eqnarray}
-$B$NJPHyJ,$r9M$($h$&!J3F<+!$0lEY<j$rF0$+$7$F7W;;$9$k$3$H!K!%(B
+の偏微分を考えよう（各自，一度手を動かして計算すること）．
 \begin{eqnarray}
 \Delta w_{j} 
 & = & - \mu \frac{\partial E}{\partial w_{j}} 
@@ -535,188 +535,188 @@ u_j =
  r
 u_j
 \end{eqnarray}
-$B$H!$(B2$B>h8m:9:G>.$N>l9g$HHf$Y!$:G=*AX$NAG;R$N3X=,?.9f(B$r$$B$K(B
-$B46EY9`(B $ z(1-z)$$B$,$J$/$J$C$?$b$N$K$J$C$F$$$k!%(B
-$B$3$N$h$&$K4J7i$K=q$1$k$N$O!$(B
-$B=PNO4X?t$H$7$F(B
-$B%7%0%b%$%I4X?t(B $ g(u)= 1/(1+\exp(-u))$ $B$rMQ$$$?$*$+$2$G$"$k!%(B
-$B$3$N(B$E$$B$O!$(B
-$B8r:9%(%s%H%m%T!<8m:94X?t$H$h$P$l$F$$$k!%(B
-$B@N!J(B25$BG/A0$N%K%e!<%m%V!<%`!K$N$H$-$O!$(B
-$B$=$&$$$&8@MU$O$J$+$C$?!%(B
-$BC1$J$kL`EY:GBg2=$G$"$k!%(B
+と，2乗誤差最小の場合と比べ，最終層の素子の学習信号$r$に
+感度項 $ z(1-z)$がなくなったものになっている．
+このように簡潔に書けるのは，
+出力関数として
+シグモイド関数 $ g(u)= 1/(1+\exp(-u))$ を用いたおかげである．
+この$E$は，
+交差エントロピー誤差関数とよばれている．
+昔（25年前のニューロブーム）のときは，
+そういう言葉はなかった．
+単なる尤度最大化である．
 
-%$B8r:9%(%s%H%m%T!<$H$$$&8@MU$O2x$7$$!%(B
-%$B$A$g$C$H0UL#$r9M$($F$_$h$&!%(B
-%$B%(%s%H%m%T!<$H$O!$(B
-%$BN%;6E*$JJQ?t$N>l9g!$(B$\sum y_i =1$$B$N(B
-%$B3NN(J,I[$G$O(B
+%交差エントロピーという言葉は怪しい．
+%ちょっと意味を考えてみよう．
+%エントロピーとは，
+%離散的な変数の場合，$\sum y_i =1$の
+%確率分布では
 %\begin{eqnarray}
 % H & = & - \sum_{i} y_i \log y_i
 %  \end{eqnarray}
-%  $B$G$"$k!%(B
+%  である．
   
-\section{$BJd0d!J$[$$!K(B}
+\section{補遺（ほい）}
 \begin{enumerate}
- \item $B3X=,8m:9!$HF2=8m:9(B
+ \item 学習誤差，汎化誤差
        
-      $BM?$($i$l$?NcBj$KBP$7$F!$2sO)$N=PNO$HK>$^$7$$=PNO$N(B
-      $B8m:9$r3X=,8m:9$H$h$V!%(B
-      $BNcBj$@$1$r4]0E5-$7$F$$$l$P!$$3$l$O%<%m$H$9$k$3$H$,$G$-$k!%(B
-      $BL\E*$O!$$$$^$@7P83$7$F$$$J$$NcBj$KBP$7$F!$@5$7$$Ez$($r?dO@$9$k$3$H$G$"$k!%(B
-      $BL$CN$NF~NO!J3X=,$KMQ$$$F$$$J$$%G!<%?!K$KBP$7$F$N!$(B
-      $B2sO)$N=PNO$HK>$^$7$$=PNO$N(B
-      $B8m:9$rHF2=8m:9!J(Bgeneralization error$B!K$H$h$V!%(B
-      $B$D$^$jL\E*$OHF2=8m:9$r%<%m$K$9$k$3$H$G$"$k!%(B
-      $B$7$+$b!$>/$J$$?t$NNcBj$,M?$($i$l$?$@$1$G!$K\<A$r8+H4$/NO$r?H$K$D$1$k$3$H$,(B
-      $B$G$-$kCN@-!&CNG=$N$"$k5!3#$r:n$j$?$$!%(B
+      与えられた例題に対して，回路の出力と望ましい出力の
+      誤差を学習誤差とよぶ．
+      例題だけを丸暗記していれば，これはゼロとすることができる．
+      目的は，いまだ経験していない例題に対して，正しい答えを推論することである．
+      未知の入力（学習に用いていないデータ）に対しての，
+      回路の出力と望ましい出力の
+      誤差を汎化誤差（generalization error）とよぶ．
+      つまり目的は汎化誤差をゼロにすることである．
+      しかも，少ない数の例題が与えられただけで，本質を見抜く力を身につけることが
+      できる知性・知能のある機械を作りたい．
 
- \item Bias/Variance $B%8%l%s%^(B
+ \item Bias/Variance ジレンマ
 
-       $B$3$l$,K\2]Bj$N%a%$%s%F!<%^!%(B
-       $BFs>h8m:9$O!$(BBias$B9`$H(B 
-       Variance$B9`$KJ,2r$G$-$k!JJ88%(B\cite{sgeman92a} p.10$B!K!%(B
-       $k-$NN $B$d%K%e!<%i%k%M%C%H$N<B83$G(B
-       $B3N$+$a!$9M;!$9$k!%(B
+       これが本課題のメインテーマ．
+       二乗誤差は，Bias項と 
+       Variance項に分解できる（文献\cite{sgeman92a} p.10）．
+       $k-$NN やニューラルネットの実験で
+       確かめ，考察する．
        
- \item $B2s5"!J(Bregression$B!K(B
+ \item 回帰（regression）
 
-       $B$3$l$O(B $ {\rm E }  [y | \bx]   $ $B$N$3$H!%(B
-       $BFs>h8m:9$r:G>.$K$9$k$H$$$&0UL#$G$O!$$3$l$h$j$h$$?dDjNL$O$J$$(B
-       $B!J>ZL@$OJ88%(B\cite{sgeman92a} p.4$B!K!%(B
-       $B$b$A$m$s!$%G!<%?$+$i$O(B $ {\rm E }  [y | \bx]   $ $B$r?dDj$9$k$3$H$O(B
-       $B$G$-$k$,!$(B
-       $BK\Ev$N$H$3$m$O?@MM$7$+$o$+$i$J$$!%(B
+       これは $ {\rm E }  [y | \bx]   $ のこと．
+       二乗誤差を最小にするという意味では，これよりよい推定量はない
+       （証明は文献\cite{sgeman92a} p.4）．
+       もちろん，データからは $ {\rm E }  [y | \bx]   $ を推定することは
+       できるが，
+       本当のところは神様しかわからない．
        
  \item Nearest-Neighbor Regression
 
-       $k-$Nearest-Neighbor $B$H$h$P$l$k!%(B
-       $k$ $B$K$O(B $1$ $B$H$+!$(B$5$ $B$J$I$N@0?t$,F~$k!%(B
-       $B$3$NJ}K!$OC1=c$G!$J,$+$j$d$9$$!%(B
-       $B$^$:NcBj$rA4It5-21$7$F$*$/!%(B
-       $BL$CN$NNcBj(B $\bx$$B$,M?$($i$l$?$H$-$K$O!$M?$($i$l$F$$$kNcBj$NCf$K4^$^$l$F$$$k!$(B
-       $\bx$$B$K6a$$$b$N$+$i=g$K(B$k$$B8D$NNcBj$r<h$j=P$7?dO@$K;H$&!%(B
-       $B$=$l$i$NNcBj$NK>$^$7$$=PNO$N(B$k$$B8D$NJ?6Q$r!$?dDjCM$H$7$FMQ$$$l$P$h(B
-       $B$$!%(B
-       $B6KC<$J>l9g$r9M$($l$PJ,$+$j$d$9$$!%(B
-       $k=1$ $B$G$O!$F~NO$K$b$C$H$b6a$$NcBj$HF1$8=PNO$r!$(B
-       $k$$B$,A4NcBj?t$G$"$l$P!$A4NcBj$NK>$^$7$$=PNO$NJ?6Q!$$D$^$j!$$I$s$J(B
-       $BF~NO$,M?$($i$l$F$bF1$8=PNO$r!$?dDjCM$H$7$FMQ$$$k!%(B
+       $k-$Nearest-Neighbor とよばれる．
+       $k$ には $1$ とか，$5$ などの整数が入る．
+       この方法は単純で，分かりやすい．
+       まず例題を全部記憶しておく．
+       未知の例題 $\bx$が与えられたときには，与えられている例題の中に含まれている，
+       $\bx$に近いものから順に$k$個の例題を取り出し推論に使う．
+       それらの例題の望ましい出力の$k$個の平均を，推定値として用いればよ
+       い．
+       極端な場合を考えれば分かりやすい．
+       $k=1$ では，入力にもっとも近い例題と同じ出力を，
+       $k$が全例題数であれば，全例題の望ましい出力の平均，つまり，どんな
+       入力が与えられても同じ出力を，推定値として用いる．
               
  \item Parzen-Window Regression
 
-       $BNcBj$K%,%&%9J,I[$N$h$&$J=E$_$rIU$1$F9M$($k!%9M$(J}$O(B $k-$NN $B$HF1(B
-       $B$8!J$H$$$($P!$8lJ@$,$"$k$+$b$7$l$J$$!K!%(B
+       例題にガウス分布のような重みを付けて考える．考え方は $k-$NN と同
+       じ（といえば，語弊があるかもしれない）．
 
- \item $B6qBNE*$J<B83$N;EJ}!JI>2A$NJ}K!!K(B
+ \item 具体的な実験の仕方（評価の方法）
 
-       $B$3$3$G$O!$(B
-       $ {\rm E }  [y | \bx]   $ $B$,$o$+$C$F$$$k>l9g$G<B83$9$k$N$G!$(B
-       $B3X=,8m:9$K$D$$$F!$(B
-       $B2#<4$K;~4V(B$t$$B!$=D<4$K8m:9(B$E(t)$$B$r%W%m%C%H$7$??^$GI>2A$9$l$PNI$$(B
+       ここでは，
+       $ {\rm E }  [y | \bx]   $ がわかっている場合で実験するので，
+       学習誤差について，
+       横軸に時間$t$，縦軸に誤差$E(t)$をプロットした図で評価すれば良い
        
- \item $B%K%e!<%m%s$N=PNO$r7h$a$k4X?t$K$D$$$F!%(B
+ \item ニューロンの出力を決める関数について．
        
-       $g(u) = 1/\{1+\exp(-u)\}$$B$J$I!J3h@-(B
-       $B2=4X?t$H$h$P$l$?$j$9$k!K$O!$(B$0$ $B$+$i(B $1$$B$NCM$r=PNO$9$k!%(B
-       $-1,1$ $B$NCM$r=PNO$5$;$?$1$l$P!$(B
+       $g(u) = 1/\{1+\exp(-u)\}$など（活性
+       化関数とよばれたりする）は，$0$ から $1$の値を出力する．
+       $-1,1$ の値を出力させたければ，
        $g(u) = \tanh (u) $
-       $B$rMQ$$$F$$$l$P$h$$!%(B
-       $B=PNOAX$NAG;R$O$H$b$+$/!$(B
-       $BCf4VAX$NAG;R$K$O!$(B
+       を用いていればよい．
+       出力層の素子はともかく，
+       中間層の素子には，
        $g(u) = \tanh (u) $
-       $B$rMQ$$$?$[$&$,!$3X=,$,B.$/?J$`!$$h$&$@!J"+M}O@E*:,5r$rD4$Y$kI,MW(B
-       $B$"$j!K!%(B
-       $B=PNOCM$NK>$^$7$$?.9f$b(B $0,1$$B$h$j!$(B
-       $ y = \pm 1 $ $B$N$H$-$N$[$&$,3X=,$,$&$^$/$$$/$H$$$&OC$b$"$k!%(B
-       $B$I$A$i$N>l9g$b!$K>$^$7$$=PNO$r(B $0.1,0.9$ $B$H$+!$(B
-       $-0.9, 0.9$$B$H$9$k$H!$(B
-       $B3X=,$,B.$/?J$`$O$:$G$"$k!%(B
-       $g(u) = 1/\{1+\exp(-u)\}$$B$G$O!$<B:]$K$O(B$0,1$$B$r=PNO$G$-$J$$$N$G!$(B
-       $B7k9g78?t$NCM$,H/;6$7$F$$$/2DG=@-$,$"$k!%(B
+       を用いたほうが，学習が速く進む，ようだ（←理論的根拠を調べる必要
+       あり）．
+       出力値の望ましい信号も $0,1$より，
+       $ y = \pm 1 $ のときのほうが学習がうまくいくという話もある．
+       どちらの場合も，望ましい出力を $0.1,0.9$ とか，
+       $-0.9, 0.9$とすると，
+       学習が速く進むはずである．
+       $g(u) = 1/\{1+\exp(-u)\}$では，実際には$0,1$を出力できないので，
+       結合係数の値が発散していく可能性がある．
 
  \item ReLU
 
-       $B:G6a!$$h$/MQ$$$i$l$k(B
-       $B3h@-2=4X?t!%(B
-       $B$I$&$7$F$h$/MQ$$$i$l$k$+$O!$$^$?JL$N5!2q$K2r@b!%(B
+       最近，よく用いられる
+       活性化関数．
+       どうしてよく用いられるかは，また別の機会に解説．
 
- \item $B7k9g78?t$N=i4|CM$K$D$$$F(B
+ \item 結合係数の初期値について
 
-       $B=i4|CM$,!$0JA0$K9M$($i$l$F$$$?$h$j$b!$=EMW$G$"$k$3$H$,$o$+$C$F$$(B
-       $B$k!%(B
-       $BJ?6Q(B$0$$B!$J,;6(B$0.1$$B$N@55,J,I[$K$7$?$,$&Mp?t$rMQ$$$k$J$I!$(B
-       $B$+$J$j>.$5$$CM$r$b$D$N$,$h$$$h$&$@!%(B
-       $B$"$^$j$K>.$5$9$.$k$H!$3X=,$K;~4V$,$+$+$k$h$&$G$O$"$k!%(B
-       $B3X=,78?t$H$N7s$M9g$$$J$I!$?&?M7]$,I,MW!%(B
+       初期値が，以前に考えられていたよりも，重要であることがわかってい
+       る．
+       平均$0$，分散$0.1$の正規分布にしたがう乱数を用いるなど，
+       かなり小さい値をもつのがよいようだ．
+       あまりに小さすぎると，学習に時間がかかるようではある．
+       学習係数との兼ね合いなど，職人芸が必要．
               
- \item  $B:GE,2=!J(B$E$$B$N:G>.2=!K$NJ}K!(B
+ \item  最適化（$E$の最小化）の方法
 
-	$B$3$l$b?&?M7]$,I,MW!%(B
-	$B$*$*$/$N%U%l!<%`%o!<%/$G$O!$(B
-	$B:GE,2=$N(B
-	$B%*%W%7%g%s!$$?$H$($P(B adam$B!$$rA*$Y$P$h$$!%(B
-	$B%U%l!<%`%o!<%/$r;H$o$:!$(B
-	$B<+J,$G!$0lEY=q$$$F$_$k$3$H!%(B
+	これも職人芸が必要．
+	おおくのフレームワークでは，
+	最適化の
+	オプション，たとえば adam，を選べばよい．
+	フレームワークを使わず，
+	自分で，一度書いてみること．
 	
-\item Tensorflow, Chainer $B$J$I$NMxMQ(B
+\item Tensorflow, Chainer などの利用
 
 \end{enumerate}
 
 
 
-\section{$B6qBNE*$J<B83$N;EJ}(B}
+\section{具体的な実験の仕方}
 \begin{enumerate}
-\item $BNcBj%G!<%?$N:n@.(B
- \item $B7k9g78?t$N=i4|CM$rE,Ev$JMp?t$K@_Dj(B
- \item $B2sO)$KF~NO$rM?$(!$=g$KAG;R$N=PNO$r7W;;$7!$:G=*=PNO$r7W;;!%(B
- \item $B7k9g78?t$NCM$r99?7(B
- \item $B3X=,$,$"$kDxEY40N;$9$k$^$G!$(B2. $B$KLa$C$F7+$jJV$9!%(B
-       $B3X=,$,?J$s$G$$$k$+$I$&$+$O!$(B$E$$B$NCM$N;~4VJQ2=$r$_$k$H$h$$!%(B
-       $B?6F0$7$F$$$k>l9g!$3X=,78?t$,Bg$-$9$.$k$3$H$K860x$,$"$k$H9M$($h$&!%(B
+\item 例題データの作成
+ \item 結合係数の初期値を適当な乱数に設定
+ \item 回路に入力を与え，順に素子の出力を計算し，最終出力を計算．
+ \item 結合係数の値を更新
+ \item 学習がある程度完了するまで，2. に戻って繰り返す．
+       学習が進んでいるかどうかは，$E$の値の時間変化をみるとよい．
+       振動している場合，学習係数が大きすぎることに原因があると考えよう．
 \end{enumerate}
 
 \rhead{}
 
-% BibTeX $B$r;HMQ$9$k>l9g(B %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BibTeX を使用する場合 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{irl_bibs}
 
 
 \newpage
 %
 %
-\lhead{2018$BG/(B4$B7n(B26$BF|(B\\ $B?tM}G>2J3X(B}
-\rhead{$B3X@RHV9f!'(B{\large \underline{\hspace*{15mm}}
+\lhead{2018年4月26日\\ 数理脳科学}
+\rhead{学籍番号：{\large \underline{\hspace*{15mm}}
 \underline{\hspace*{15mm}}}\vspace*{5mm}\\
-\underline{$BL>A0!'(B\hspace*{5cm}}~
-\underline{$BF@E@!'(B\hspace*{2cm}}
+\underline{名前：\hspace*{5cm}}~
+\underline{得点：\hspace*{2cm}}
 }
 \vspace*{1mm}
 
 \begin{center}
-{\large\bf $B>.%F%9%H(B $B!Z%P%C%/%W%m%Q%2!<%7%g%s![(B}
+{\large\bf 小テスト 【バックプロパゲーション】}
 \end{center}
 
 \begin{enumerate}
 
 \item 
-$B%K%e!<%m%s$N=PNO4X?t$,(B
+ニューロンの出力関数が
 \begin{eqnarray}
 f(u) & = & \frac{1}{1 + \text{e}^{-u/T} } 
 \end{eqnarray}
-$B$N>l9g$r9M$($k(B($T$$B$O@5$NDj?t(B)$B!%(B
+の場合を考える($T$は正の定数)．
 \begin{eqnarray}
 f'(u) & = & \frac{1}{T} f(u) ( 1 - f(u) )
 \end{eqnarray}
-$B$G$"$k$3$H$r0J2<$N<j=g$G3N$+$a$h!%(B
+であることを以下の手順で確かめよ．
       
 
 \begin{enumerate}
-\item $ 1 - f(u) $ $B$r5a$a$h!%(B
+\item $ 1 - f(u) $ を求めよ．
 
 \vskip 20mm
       
-\item $f'(u)$$B$r5a$a$h!%(B $BHyJ,$N8x<0!'(B$ \left \{ \frac{1}{g(u)} \right \}' = - \frac{g'(u)}{\{g(u)\}^2 }$
+\item $f'(u)$を求めよ． 微分の公式：$ \left \{ \frac{1}{g(u)} \right \}' = - \frac{g'(u)}{\{g(u)\}^2 }$
 
 \end{enumerate}
 
@@ -728,30 +728,30 @@ f'(u) & = & \frac{1}{T} f(u) ( 1 - f(u) )
 \begin{figure}[hbt]
 \begin{center}
 \includegraphics[width=.8\linewidth]{figs/nn20180425bw.eps}
-\caption{3$BAX?@7P2sO)%b%G%k!J<B<A$O(B2$BAX!K(B\label{fig:3layer}}
+\caption{3層神経回路モデル（実質は2層）\label{fig:3layer}}
 \end{center}
 \end{figure}
 
 
- \item $\bx$$B$,F~NO$5$l$?$H$-$N(B $\Delta s_{jk} = - \mu \frac{\partial
+ \item $\bx$が入力されたときの $\Delta s_{jk} = - \mu \frac{\partial
        E}{\partial s_{jk}}
-              $ $B$r7W;;$;$h!%(B
+              $ を計算せよ．
 $ E =  \frac{1}{2} 
 \biggl ( z(\bx) - y \biggr )^2
 $
-$B$H$9$k!%(B\\
-$B0J2<!$M>NO$,$"$k>l9g!'(B~
-$B2sO)$N=PNO(B $ z = f(\btheta | \bx)$ $B$r(B
-$B!VF~NO(B$\bx$$B$KBP$72sO)$,@52r$r=PNO$9$k3NN(!W(B
-       $B$H9M$(!$3X=,$NL\E*$r(B
-       $BL`EY(B $ z^y (1-z)^{1-y}$
-$B$r:GBg2=$9$k$3$H$HDj<02=$G$-$k!%(B
-$B:G>.2=$9$k4X?t$r(B
+とする．\\
+以下，余力がある場合：~
+回路の出力 $ z = f(\btheta | \bx)$ を
+「入力$\bx$に対し回路が正解を出力する確率」
+       と考え，学習の目的を
+       尤度 $ z^y (1-z)^{1-y}$
+を最大化することと定式化できる．
+最小化する関数を
        $ E= - \biggl \{ y \log z(\bx) + (1-y) \log \bigl ( 1-z(\bx)
        \bigr )  \biggr \}$
-       $B!JBP?tL`EY$NId9f$rH?E>$7$?$b$N!K(B
-       $B$HDj5A$7$?>l9g$K$D$$$F$b!$3F7k9g78?t$GJPHyJ,$7$?CM$r7W;;$7!$(B
-       2$B>h8m:98m:9:G>.$N>l9g$H7k2L$rHf3S$7$F$_$h!%(B
+       （対数尤度の符号を反転したもの）
+       と定義した場合についても，各結合係数で偏微分した値を計算し，
+       2乗誤差誤差最小の場合と結果を比較してみよ．
        
 
 % \vskip 200mm
@@ -762,24 +762,24 @@ $
  \item 
       $ E \biggl [ \biggl ( y-f(\bx; \btheta) \biggr )^2 \bigg | \bx \biggr ] \geqq
 E \biggl [ \biggl ( y-E[y | \bx] \biggr )^2 \bigg | \bx \biggr ] 
-       $$B$r>ZL@$;$h!%(B
+       $を証明せよ．
 \vspace*{2mm}
        
-       $B$3$3$G!$(B$f(\bx)$$B$O2sO)$N=PNO!$(B
- %      $B!J@53N$K$O(B$f(\bx;{\cal D})$ $B$b$7$/$O(B $f(\bx;\btheta)$ $B!K!$(B
-       $y$$B$OK>$^$7$$=PNO!J0l<!85!$(B$\by=y$$B!K!$(B
-       $E$$B$OF~NO(B$\bx$$B$KBP$9$k4|BTCM!%(B
-       $B$3$NITEy<0$N0UL#!'(B
-       $B%Q%i%a!<%?(B$\btheta$$B$rD4@a$7$F!$(B
-       $B$I$s$J$K$h$$2sO)(B$f(\bx;\btheta)$$B$r:n$l$?$H$7$F$b!$(B
-       $E[y | \bx]$ $B$h$j(B
-       $BE,@Z$J2sO)$O:n$l$J$$(B
-       $B!JFs>h8m:9$r:G>.$K$9$k$H$$$&0UL#$G!%(B
+       ここで，$f(\bx)$は回路の出力，
+ %      （正確には$f(\bx;{\cal D})$ もしくは $f(\bx;\btheta)$ ），
+       $y$は望ましい出力（一次元，$\by=y$），
+       $E$は入力$\bx$に対する期待値．
+       この不等式の意味：
+       パラメータ$\btheta$を調節して，
+       どんなによい回路$f(\bx;\btheta)$を作れたとしても，
+       $E[y | \bx]$ より
+       適切な回路は作れない
+       （二乗誤差を最小にするという意味で．
        Among all functions of $\bx$,
        the regression is the {\it best} predictor of $y$
 given $\bx$, in the mean-squared-error sense.
-       $B!K!%(B
-       $B"((B $E[y|\bx]$$B$O(B$\bx$$B$N7hDjE*$J4X?t!$2s5"!J(Bregression$B!K$H$$$&!%(B
+       ）．
+       ※ $E[y|\bx]$は$\bx$の決定的な関数，回帰（regression）という．
 
 
 \newpage
@@ -795,8 +795,8 @@ given $\bx$, in the mean-squared-error sense.
        [f(\bx;{\cal
        D}) \bigr ] \biggr )^2\biggr ]
 $
-       $B$r>ZL@$;$h!%1&JUBh0l9`$r%P%$%"%99`!$BhFs9`$r%P%j%"%s%99`$H$$$&!%(B
-$E_{\cal D}$$B$O!$71N}%G!<%?=89g(B${\cal D}$$B$K4X$7$F4|BTCM$r$H$kA`:n!%(B
+       を証明せよ．右辺第一項をバイアス項，第二項をバリアンス項という．
+$E_{\cal D}$は，訓練データ集合${\cal D}$に関して期待値をとる操作．
        \vspace*{2mm}
 
 \end{enumerate}
