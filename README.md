@@ -13,6 +13,8 @@ Here we try to reproduce figures presented in the great papers.
 - Figure 7 (Bias and variance of 1 and 10-nearest-neighbor estimators, SWR)
 - Figure 8 (Bias and variance of feedforward neural networks, #(hidden units)=1,...,15, SWR)
 - Figure 9 (two examples of the output of feedforward neural networks, #(hidden units)=5, SWR)
+<img src="https://gyazo.com/6136e3d5e2720fefa98a41adfee5f10d" height="220px" align="left">
+
 - Figure 10 (average of 100 outputs of feedforward neural networks, #(hidden units)=5, SWR)
 - Figure 11 (Bias and variance of feedforward neural networks, #(hidden units)=1 and 15, SWR)
 
